@@ -4,6 +4,10 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+app.UseStaticFiles();
+
+app.UseRouting();
+
 //contoller = Home, action= Index, id?
 // app.MapDefaultControllerRoute();
 app.MapControllerRoute(

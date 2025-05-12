@@ -29,3 +29,5 @@
 /Users/bahadirkilic/Documents/aspnet-core_lessons/MeetingApp/obj/Debug/net8.0/ref/MeetingApp.dll
 /Users/bahadirkilic/Documents/aspnet-core_lessons/MeetingApp/obj/Debug/net8.0/MeetingApp.RazorAssemblyInfo.cache
 /Users/bahadirkilic/Documents/aspnet-core_lessons/MeetingApp/obj/Debug/net8.0/MeetingApp.RazorAssemblyInfo.cs
+/Users/bahadirkilic/Documents/aspnet-core_lessons/MeetingApp/bin/Debug/net8.0/libman.json
+/Users/bahadirkilic/Documents/aspnet-core_lessons/MeetingApp/bin/Debug/net8.0/MeetingApp.staticwebassets.runtime.json
