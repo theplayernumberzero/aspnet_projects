@@ -46,10 +46,29 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult Create(Product model)
+    public async Task<IActionResult> Create(Product model, IFormFile imageFile)
     {
+        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+        var extension = "";
+
+        if(imageFile != null)
+        {
+            extension = Path.GetExtension(imageFile.FileName);
+            if (!allowedExtensions.Contains(extension))
+            {
+                ModelState.AddModelError("imageFile", "Bu uzantıda resim kabul edilmemektedir.");
+            }
+        }
         if (ModelState.IsValid)
         {
+            var randomFileName = string.Format($"{Guid.NewGuid()}{extension}");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", randomFileName);
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await imageFile!.CopyToAsync(stream);
+            }
+
+            model.Image = randomFileName;
             model.ProductId = Repository.Products.Count + 1;
             Repository.CreateProduct(model);
             return RedirectToAction("Index");
