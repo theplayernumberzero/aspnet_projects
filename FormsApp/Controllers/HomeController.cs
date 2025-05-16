@@ -19,7 +19,7 @@ public class HomeController : Controller
         if (!String.IsNullOrEmpty(searchString))
         {
             ViewBag.SearchString = searchString;
-            products = products.Where(p => p.Name.ToLower().Contains(searchString)).ToList();
+            products = products.Where(p => p.Name!.ToLower().Contains(searchString)).ToList();
         }
 
         if (!String.IsNullOrEmpty(category) && category != "0")
@@ -48,7 +48,13 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Create(Product model)
     {
-        Repository.CreateProduct(model);
-        return RedirectToAction("Index");
+        if (ModelState.IsValid)
+        {
+            model.ProductId = Repository.Products.Count + 1;
+            Repository.CreateProduct(model);
+            return RedirectToAction("Index");
+        }
+        ViewBag.Categories = new SelectList(Repository.Categories, "CategoryId", "Name");
+        return View(model);
     }
 }
