@@ -1,3 +1,5 @@
+using System.IO.Compression;
+
 namespace FormsApp.Models{
     public class Repository{
 
@@ -25,6 +27,19 @@ namespace FormsApp.Models{
         public static void CreateProduct(Product entity)
         {
             _products.Add(entity);
+        }
+
+        public static void EditProduct(Product updatededProduct)
+        {
+            var entity = _products.FirstOrDefault(p => p.ProductId == updatededProduct.ProductId);
+            if (entity != null)
+            {
+                entity.Name = updatededProduct.Name;
+                entity.Image = updatededProduct.Image;
+                entity.CategoryId = updatededProduct.CategoryId;
+                entity.Price = updatededProduct.Price;
+                entity.IsActive = updatededProduct.IsActive;
+            }
         }
 
         public static List<Category> Categories

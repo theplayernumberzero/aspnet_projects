@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/bahadirkilic/Documents/aspnet-core_lessons/FormsApp/wwwroot/img/efab2781-c670-4abf-9be4-dd01eab91ec4.jpg",
+      "PackagePath": "staticwebassets/img/efab2781-c670-4abf-9be4-dd01eab91ec4.jpg"
+    },
+    {
       "Id": "/Users/bahadirkilic/Documents/aspnet-core_lessons/FormsApp/wwwroot/img/iphone11.jpg",
       "PackagePath": "staticwebassets/img/iphone11.jpg"
     },

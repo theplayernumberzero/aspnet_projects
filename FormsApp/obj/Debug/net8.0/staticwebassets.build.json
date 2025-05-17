@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "L+tTJPuEeqTr9HXT4xmENcAknx5yZ3Y1StGtU0pjHXY=",
+  "Hash": "LM5iTPXhs0oVhDLIBgOqyUc450PlZGcRhYsw1uHajYo=",
   "Source": "FormsApp",
   "BasePath": "_content/FormsApp",
   "Mode": "Default",
@@ -99,6 +99,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/bahadirkilic/Documents/aspnet-core_lessons/FormsApp/wwwroot/img/efab2781-c670-4abf-9be4-dd01eab91ec4.jpg",
+      "SourceId": "FormsApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/bahadirkilic/Documents/aspnet-core_lessons/FormsApp/wwwroot/",
+      "BasePath": "_content/FormsApp",
+      "RelativePath": "img/efab2781-c670-4abf-9be4-dd01eab91ec4#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8k57mbycmm",
+      "Integrity": "GOZInjep9Miw1SBq/B77nB5p1i+GGBhbUOGnCVF/K8E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/efab2781-c670-4abf-9be4-dd01eab91ec4.jpg"
     },
     {
       "Identity": "/Users/bahadirkilic/Documents/aspnet-core_lessons/FormsApp/wwwroot/img/iphone11.jpg",
@@ -1771,6 +1792,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-qDud/YYo0cZQiR5LYLE12EN8rOWFLYOMPW/jWlzsibY="
+        }
+      ]
+    },
+    {
+      "Route": "img/efab2781-c670-4abf-9be4-dd01eab91ec4.8k57mbycmm.jpg",
+      "AssetFile": "/Users/bahadirkilic/Documents/aspnet-core_lessons/FormsApp/wwwroot/img/efab2781-c670-4abf-9be4-dd01eab91ec4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5566"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GOZInjep9Miw1SBq/B77nB5p1i+GGBhbUOGnCVF/K8E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 16 May 2025 08:58:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8k57mbycmm"
+        },
+        {
+          "Name": "label",
+          "Value": "img/efab2781-c670-4abf-9be4-dd01eab91ec4.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-GOZInjep9Miw1SBq/B77nB5p1i+GGBhbUOGnCVF/K8E="
+        }
+      ]
+    },
+    {
+      "Route": "img/efab2781-c670-4abf-9be4-dd01eab91ec4.jpg",
+      "AssetFile": "/Users/bahadirkilic/Documents/aspnet-core_lessons/FormsApp/wwwroot/img/efab2781-c670-4abf-9be4-dd01eab91ec4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5566"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GOZInjep9Miw1SBq/B77nB5p1i+GGBhbUOGnCVF/K8E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 16 May 2025 08:58:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-GOZInjep9Miw1SBq/B77nB5p1i+GGBhbUOGnCVF/K8E="
         }
       ]
     },

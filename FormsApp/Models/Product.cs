@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 namespace FormsApp.Models{
     public class Product{
 
-        [BindNever]
+        // [BindNever]
         [Display(Name = "Urun ID")]
         public int ProductId { get; set; }
 

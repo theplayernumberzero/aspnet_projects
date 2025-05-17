@@ -51,7 +51,7 @@ public class HomeController : Controller
         var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
         var extension = "";
 
-        if(imageFile != null)
+        if (imageFile != null)
         {
             extension = Path.GetExtension(imageFile.FileName);
             if (!allowedExtensions.Contains(extension))
@@ -71,6 +71,49 @@ public class HomeController : Controller
             model.Image = randomFileName;
             model.ProductId = Repository.Products.Count + 1;
             Repository.CreateProduct(model);
+            return RedirectToAction("Index");
+        }
+        ViewBag.Categories = new SelectList(Repository.Categories, "CategoryId", "Name");
+        return View(model);
+    }
+
+    [HttpGet]
+    public IActionResult Edit(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();  //404 sayfası
+        }
+        var entity = Repository.Products.FirstOrDefault(p => p.ProductId == id);
+        if (entity == null)
+        {
+            return NotFound();  //404 sayfası
+        }
+        ViewBag.Categories = new SelectList(Repository.Categories, "CategoryId", "Name");
+        return View(entity);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Edit(int id, Product model, IFormFile? imageFile)
+    {
+        if (id != model.ProductId)
+        {
+            return NotFound();
+        }
+        if (ModelState.IsValid)
+        {
+            if (imageFile != null)
+            {
+                var extension = Path.GetExtension(imageFile.FileName);
+                var randomFileName = string.Format($"{Guid.NewGuid()}{extension}");
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", randomFileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await imageFile.CopyToAsync(stream);
+                }
+                model.Image = randomFileName;
+            }
+            Repository.EditProduct(model);
             return RedirectToAction("Index");
         }
         ViewBag.Categories = new SelectList(Repository.Categories, "CategoryId", "Name");
