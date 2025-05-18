@@ -150,4 +150,14 @@ public class HomeController : Controller
         Repository.DeleteProduct(entity);
         return RedirectToAction("Index");
     }
+
+    [HttpPost]
+    public IActionResult EditProducts(List<Product> products)
+    {
+        foreach (var product in products)
+        {
+            Repository.EditProducts(product);
+        }
+        return RedirectToAction("Index");
+    }
 }
