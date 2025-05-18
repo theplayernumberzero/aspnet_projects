@@ -119,4 +119,35 @@ public class HomeController : Controller
         ViewBag.Categories = new SelectList(Repository.Categories, "CategoryId", "Name");
         return View(model);
     }
+
+    [HttpGet]
+    public IActionResult Delete(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();  //404 sayfası
+        }
+        var entity = Repository.Products.FirstOrDefault(p => p.ProductId == id);
+        if (entity == null)
+        {
+            return NotFound();  //404 sayfası
+        }
+        return View("DeleteConfirm", entity);
+    }
+
+    [HttpPost]
+    public IActionResult Delete(int id, int ProductId)
+    {
+        if (id != ProductId)
+        {
+            return NotFound();  //404 sayfası
+        }
+        var entity = Repository.Products.FirstOrDefault(p => p.ProductId == ProductId);
+        if (entity == null)
+        {
+            return NotFound();  //404 sayfası
+        }
+        Repository.DeleteProduct(entity);
+        return RedirectToAction("Index");
+    }
 }

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/bahadirkilic/Documents/aspnet-core_lessons/FormsApp/wwwroot/img/b7a18aea-f92a-4f08-871a-fa5851b45c78.jpg",
+      "PackagePath": "staticwebassets/img/b7a18aea-f92a-4f08-871a-fa5851b45c78.jpg"
+    },
+    {
       "Id": "/Users/bahadirkilic/Documents/aspnet-core_lessons/FormsApp/wwwroot/img/efab2781-c670-4abf-9be4-dd01eab91ec4.jpg",
       "PackagePath": "staticwebassets/img/efab2781-c670-4abf-9be4-dd01eab91ec4.jpg"
     },
