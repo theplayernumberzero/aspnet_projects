@@ -1,0 +1,10 @@
+@model Ogrenci
+
+<p>
+    <b>@Model.OgrenciAd @Model.OgrenciSoyad</b> isimli ogrenciyi silmek istiyor musunuz?
+    <form asp-controller="Ogrenci" asp-action="Delete" method="post">
+        <input type="hidden" value="@Model.OgrenciId" name="id">
+        <button type="submit" class="btn btn-danger">Evet</button>
+        <a asp-controller="Ogrenci" asp-action="Index" class="btn btn-primary">Hayır</a>
+    </form>
+</p>
