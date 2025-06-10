@@ -1,6 +1,8 @@
 using System.IO.Compression;
 using efCoreApp.Data;
+using efCoreApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace efCoreApp.Controllers
@@ -14,8 +16,9 @@ namespace efCoreApp.Controllers
             _context = context;
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> CreateAsync()
         {
+            ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(), "OgretmenId", "AdSoyad");
             return View();
         }
 
@@ -29,7 +32,10 @@ namespace efCoreApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var kurslar = await _context.Kurslar.ToListAsync();
+            var kurslar = await _context
+            .Kurslar
+            .Include(k => k.Ogretmen)
+            .ToListAsync();
             return View(kurslar);
         }
 
@@ -44,6 +50,13 @@ namespace efCoreApp.Controllers
             var kurs = await _context.Kurslar
             .Include(k => k.KursKayitlari)
             .ThenInclude(k => k.Ogrenci)
+            .Select(k => new KursViewModel
+            {
+                KursId = k.KursId,
+                Baslik = k.Baslik,
+                OgretmenId = k.OgretmenId,
+                KursKayitlari = k.KursKayitlari
+            })
             .FirstOrDefaultAsync(k => k.KursId == id);
 
             if (kurs == null)
@@ -51,12 +64,13 @@ namespace efCoreApp.Controllers
                 return NotFound();
             }
 
+            ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(), "OgretmenId", "AdSoyad");
             return View(kurs);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Kurs model)
+        public async Task<IActionResult> Edit(int id, KursViewModel model)
         {
             if (id != model.KursId)
             {
@@ -66,7 +80,7 @@ namespace efCoreApp.Controllers
             {
                 try
                 {
-                    _context.Kurslar.Update(model);
+                    _context.Kurslar.Update(new Kurs{KursId = model.KursId, Baslik=model.Baslik, OgretmenId = model.OgretmenId});
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateException)
