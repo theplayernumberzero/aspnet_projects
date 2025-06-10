@@ -1,9 +1,11 @@
 @model Kurs
 
-<h2>Kurs Gğncelle</h2>
+<h2>Kurs Guncelle</h2>
 <hr>
 
-<form asp-contoller="Kurs" asp-action="Edit" method="post">
+<div class="row">
+    <div class="col-8">
+        <form asp-contoller="Kurs" asp-action="Edit" method="post">
     <input type="hidden" asp-for="KursId">
     <div class="mb-3">
         <label asp-for="Baslik" class="form-label">Baslik</label>
@@ -12,3 +14,11 @@
 
     <button type="submit" class="btn btn-primary">Kaydet</button>
 </form>
+    </div>
+    <div class="col-4">
+        <h4>Ogrenciler</h4>
+        @foreach(var ogrenci in Model.KursKayitlari){
+            <li>@ogrenci.Ogrenci.AdSoyad</li>
+        }
+    </div>
+</div>
