@@ -6,25 +6,26 @@
 <div class="row">
     <div class="col-8">
         <form asp-contoller="Kurs" asp-action="Edit" method="post">
-    <input type="hidden" asp-for="KursId">
-    <div class="mb-3">
-        <label asp-for="Baslik" class="form-label">Baslik</label>
-        <input asp-for="Baslik" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label asp-for="OgretmenId" class="form-label">Ogretmen</label>
-        <select asp-for="OgretmenId" asp-items="ViewBag.Ogretmenler" class="form-select">
-            <option value="">Seçiniz</option>
-        </select>
-    </div>
+            <div asp-validation-summary="All"></div>
+            <input type="hidden" asp-for="KursId">
+            <div class="mb-3">
+                <label asp-for="Baslik" class="form-label">Baslik</label>
+                <input asp-for="Baslik" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="OgretmenId" class="form-label">Ogretmen</label>
+                <select asp-for="OgretmenId" asp-items="ViewBag.Ogretmenler" class="form-select">
+                    <option value="">Seçiniz</option>
+                </select>
+            </div>
 
-    <button type="submit" class="btn btn-primary">Kaydet</button>
-</form>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </form>
     </div>
     <div class="col-4">
         <h4>Ogrenciler</h4>
         @foreach(var ogrenci in Model.KursKayitlari){
-            <li>@ogrenci.Ogrenci.AdSoyad</li>
+        <li>@ogrenci.Ogrenci.AdSoyad</li>
         }
     </div>
 </div>
